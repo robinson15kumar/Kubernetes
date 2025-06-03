@@ -1,0 +1,37 @@
+-- We created two different pods within same k8s cluster.
+
+   kubectl apply -f netflix-pod.yaml
+   kubectl apply -f firefox-pod.yaml
+   kubectl get pods
+   kubectl get pods  -o wide
+   kubectl port-forward pod/firefox-pod 9090:3000
+
+   We forwarded my localhost port 9090 to firefox port 3000.
+   Two pods created within same k8s cluster can communicate each other.
+   Each pod has its own internal IP.
+   Open localhost:9090 on browser to open firefox and hit internal IP of netflix pod with port.
+   localhost:9090   -- on my computer browser
+   netflix_IP:80    -- on firfox browser 
+   you will find netflix will run on firefox.
+
+   But if you want both the pods should not commmunicate with each other, you can apply Network-Policy.
+   In your k8s cluster, you will have to first enable network-policy.
+
+   kubectl explain networkpolicy --recursive > nwpolicy.txt
+   Read nwpolicy.txt file , understand the attributes and create your yaml file to set network policy.
+   https://kubernetes.io/docs/concepts/services-networking/network-policies/
+   
+   Check net-i-policy.yaml file, we are applying network policy to laila pod (line 6 - 8)
+   and ingress is enabled from majnu pod to laila pod at port 80 (line 11 - 18)
+
+   If we comment code (line 9 - 18), then majnu pod will not communicate with laila pod
+   and if we uncomment this code, then majnu can communicate with laila via port 80
+
+   Thus, it is proved that we can control communication / traffic between pods using network policy.
+
+
+   
+
+
+   
+

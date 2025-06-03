@@ -1,0 +1,18 @@
+apiVersion : networking.k8s.io/v1
+kind : NetworkPolicy
+metadata : 
+  name : mynwpolicy
+spec:
+  podSelector:
+    matchLabels:
+      type : laila
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          type : majnu
+    ports:
+    - protocol: TCP
+      port: 80
