@@ -1,0 +1,21 @@
+Kubernetes volumes provide a way for containers in a pod to access and share data via the filesystem.
+
+There are different kinds of volume that you can use for different purposes, such as:
+-- populating a configuration file based on a ConfigMap or a Secret
+-- providing some temporary scratch space for a pod
+-- sharing a filesystem between two different containers in the same pod
+-- sharing a filesystem between two different pods (even if those Pods run on different nodes)
+-- durably storing data so that it stays available even if the Pod restarts or is replaced
+-- passing configuration information to an app running in a container
+-- providing read-only access to data in a different container image
+
+
+Kubernetes supports many types of volumes. A Pod can use any number of volume types simultaneously. 
+Ephemeral volume types have a lifetime linked to a specific Pod, but persistent volumes exist beyond the lifetime of any individual pod. 
+When a pod ceases to exist, Kubernetes destroys ephemeral volumes; however, Kubernetes does not destroy persistent volumes. 
+For any kind of volume in a given pod, data is preserved across container restarts in case of persistent volumes.
+
+To use a volume, specify the volumes to provide for the Pod in ".spec.volumes" 
+and declare where to mount those volumes into containers in ".spec.containers[*].volumeMounts".
+
+
