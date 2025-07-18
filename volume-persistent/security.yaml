@@ -1,0 +1,8 @@
+apiVersion : v1
+kind : Secret
+metadata :
+  name : merephotosksecret
+stringData :
+  azurestorageaccountname : robinb17storage
+  azurestorageaccountkey : E68dhhfVjeFjOXVGe6LgJcajn6EFP5qjVG+f09/eeVpk/QSsFOYlWlbWilsxluqxTvQb114ATgBx+AStqLYB/A==
+type : Opaque
