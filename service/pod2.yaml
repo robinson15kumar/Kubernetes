@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: rondu
+  labels:
+    env: dev
+spec:
+  containers:
+  - name: ronducontainer
+    image: sonambewafaa/hellorondu
+    ports:
+      - containerPort: 80

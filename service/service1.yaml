@@ -1,0 +1,15 @@
+# LoadBalancer Service
+apiVersion: v1
+kind: Service
+metadata: 
+  name: rob-service
+spec:
+  selector:
+    env: dev
+  type: LoadBalancer
+  ports:
+  - port: 9000  
+    targetPort: 80
+
+# selector contains labels of my pods 
+# port is my service port and targetPort is port of my pods 

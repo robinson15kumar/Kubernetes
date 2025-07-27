@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dhondhu
+  labels:
+    env: dev
+spec:
+  containers:
+  - name: dhondhucontainer
+    image: sonambewafaa/hellodhondhu
+    ports:
+      - containerPort: 80
