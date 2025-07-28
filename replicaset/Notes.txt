@@ -1,0 +1,10 @@
+# ReplicaSet
+
+- ye pod ka naam , apne naam k jaisa hi rakhta hai, par alag alag id k sath 
+
+- Ye template me diye gye pods ka replica bnata hai 
+
+- iske spec me tin parameters required hoti hai replicas, seletor, template 
+
+- Advantage : Auto healing capability of pods (recreation)
+- Disadvantage : No rolling update, causes slight downtime
