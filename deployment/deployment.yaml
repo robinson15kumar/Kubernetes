@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name : rob-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      env: dev
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        env: dev
+    spec:
+      containers:
+      - name: rob-cont
+        image: sonambewafaa/useless:red
+        ports:
+          - containerPort: 80
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 4
+      maxUnavailable: 4

@@ -1,0 +1,16 @@
+  517  kubectl apply -f deployment.yaml
+  518  kubectl get pods
+  519  kubectl apply -f service.yaml
+  525  kubectl describe deployment rob-deploy
+  526  kubectl rollout history deployment/rob-deploy
+  528  kubectl rollout undo deployment/rob-deploy --to-revision=2
+  529  kubectl get pods
+  530  kubectl rollout history deployment/rob-deploy
+  531  kubectl rollout undo deployment/rob-deploy --to-revision=1
+  532  kubectl rollout history deployment/rob-deploy
+  533  kubectl annotate deployment rob-deploy  kubernetes.io/change-cause="Updated to v1 for bug fix"
+  534  kubectl rollout history deployment/rob-deploy
+  535  kubectl rollout undo deployment/rob-deploy --to-revision=2
+  536  kubectl rollout undo deployment/rob-deploy --to-revision=4
+  537  kubectl annotate deployment rob-deploy  kubernetes.io/change-cause="Updated to yellow"
+  538  kubectl rollout history deployment/rob-deploy
