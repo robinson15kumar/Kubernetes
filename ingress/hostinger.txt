@@ -1,0 +1,20 @@
+In Hostinger.com, I have purchased the domain "robintech.online" for a year.
+
+I have created to A records under DNS records.
+
+Netflix.robintech.onine  - external IP address of Netflix service
+
+axionui.robintech.online - external IP address of axionui service (20.109.131.160)
+
+
+
+$ kubectl get svc -n default
+NAME              TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
+axionui-service   LoadBalancer   10.0.13.103   20.109.131.160   9000:30483/TCP   86s
+
+$ kubectl get ingress -n default
+NAME              CLASS   HOSTS                      ADDRESS   PORTS   AGE
+axionui-ingress   nginx   axionui.robintech.online             80      42s
+
+
+Hit "axionui.robintech.online:9000" in your browser to see the website.

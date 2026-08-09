@@ -1,0 +1,12 @@
+# LoadBalancer Service
+apiVersion: v1
+kind: Service
+metadata: 
+  name: axionui-service
+spec:
+  selector:
+    env: axionui
+  type: LoadBalancer
+  ports:
+  - port: 9000  
+    targetPort: 80

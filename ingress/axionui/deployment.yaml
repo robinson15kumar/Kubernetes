@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name : axionui-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      env: axionui
+  template:
+    metadata:
+      name: axionui-pod
+      labels:
+        env: axionui
+    spec:
+      containers:
+      - name: axionui-container
+        image: devopsinsiders/axion-ui
+#        image: nginx:1.14.2
+        ports:
+          - containerPort: 80
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 4
+      maxUnavailable: 4
